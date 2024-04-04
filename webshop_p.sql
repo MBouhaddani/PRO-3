@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2024 at 09:12 AM
+-- Generation Time: Apr 04, 2024 at 07:01 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,7 +31,8 @@ CREATE TABLE `bestelling` (
   `bestellingcode` int(11) NOT NULL,
   `klantcode` int(11) NOT NULL,
   `productcode` int(11) NOT NULL,
-  `aantal` int(11) NOT NULL
+  `aantal` int(11) NOT NULL,
+  `besteldatum` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -64,6 +65,7 @@ INSERT INTO `klant` (`klantcode`, `naam`, `adres`, `plaats`) VALUES
 CREATE TABLE `product` (
   `productcode` int(11) NOT NULL,
   `type` varchar(100) NOT NULL,
+  `voor` varchar(100) NOT NULL,
   `club` varchar(100) NOT NULL,
   `merk` varchar(100) NOT NULL,
   `prijs` decimal(6,2) NOT NULL
@@ -73,9 +75,19 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`productcode`, `type`, `club`, `merk`, `prijs`) VALUES
-(1, 'Shirt', 'Feyenoord', 'Castor', 90.00),
-(2, 'Trainingspak', 'Utrecht', 'Castore', 140.00);
+INSERT INTO `product` (`productcode`, `type`, `voor`, `club`, `merk`, `prijs`) VALUES
+(1, 'Voetbalshirt', 'Heren', 'Feyenoord', 'Castor', 90.00),
+(2, 'Trainingspak', 'Heren', 'Utrecht', 'Castore', 140.00),
+(3, 'Voetbalshirt', 'Dames', 'Feyenoord', 'Castore', 80.00),
+(4, 'Trainingspak', 'Dames', 'Utrecht', 'Castore', 130.00),
+(5, 'Voetbalshirt', 'Kinderen', 'Feyenoord', 'Castore', 70.00),
+(6, 'Trainingspak', 'Kinderen', 'Utrecht', 'Castore', 120.00),
+(7, 'Voetbalshirt', 'Heren', 'Ajax', 'Adidas', 100.00),
+(8, 'Trainigspak', 'Heren', 'Ajax', 'Adidas', 180.00),
+(9, 'Voetbalshirt', 'Dames', 'Ajax', 'Adidas', 100.00),
+(10, 'Trainigspak', 'Dames', 'Ajax', 'Adidas', 180.00),
+(11, 'Voetbalshirt', 'Kinderen', 'Ajax', 'Adidas', 100.00),
+(12, 'Trainigspak', 'Kinderen', 'Ajax', 'Adidas', 180.00);
 
 --
 -- Indexes for dumped tables
@@ -109,7 +121,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `bestelling`
 --
 ALTER TABLE `bestelling`
-  MODIFY `bestellingcode` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `bestellingcode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `klant`
@@ -121,7 +133,7 @@ ALTER TABLE `klant`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productcode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `productcode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
