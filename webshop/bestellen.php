@@ -17,8 +17,20 @@
             <li><a href="aboutus.php">Over Ons</a></li>
             <li><a href="bestellen.php">Bestellen</a></li>
             <li><a href="zoeken.php">Zoeken</a></li>
-            <li style="float: right;"><a href="login.php">Inloggen</a></li>
-            <li style="float: right;"><a href="register.php">Registreren</a></li>
+            
+            <?php
+                session_start();
+                if(isset($_SESSION['username'])) {
+                    echo '<li style="float: right;"><a href="#">Profile</a>';
+                    echo '<ul>';
+                    echo '<li><a href="logout.php">Logout</a></li>';
+                    echo '</ul>';
+                    echo '</li>';
+                } else {
+                    echo '<li style="float: right;"><a href="login.php">Inloggen</a></li>';
+                    echo '<li style="float: right;"><a href="register.php">Registreren</a></li>';
+                }
+            ?>
         </ul>
     </nav>
 
