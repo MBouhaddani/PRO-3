@@ -17,8 +17,19 @@
             <li><a href="aboutus.php">About us</a></li>
             <li><a href="bestellen.php">Bestellen</a></li>
             <li><input type="text" id="zoekveld" placeholder="Zoeken..." onkeyup="zoekProducten(this.value)"></li>
-            <li style="float: right;"><a href="login.php">Inloggen</a></li>
-            <li style="float: right;"><a href="register.php">Registreren</a></li>
+            <?php
+                session_start();
+                if(isset($_SESSION['username'])) {
+                    echo '<li style="float: right;"><a href="#">Profile</a>';
+                    echo '<ul>';
+                    echo '<li><a href="logout.php">Logout</a></li>';
+                    echo '</ul>';
+                    echo '</li>';
+                } else {
+                    echo '<li style="float: right;"><a href="login.php">Inloggen</a></li>';
+                    echo '<li style="float: right;"><a href="register.php">Registreren</a></li>';
+                }
+            ?>
             <li class="winkelmandje">
                 <a href="winkelmandje.php">
                     <img src="image/shoppingcart.jpg" alt="Winkelmandje" style="height: 20px;">
@@ -58,4 +69,11 @@
             }
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                document.getElementById("zoekResult
+                document.getElementById("zoekResultaten").innerHTML = this.responseText;
+            };
+            xhttp.open("GET", "zoekProducten.php?q=" + query, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

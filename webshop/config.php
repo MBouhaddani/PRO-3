@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'webshop';
+$db   = 'webshop_login';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
@@ -12,3 +12,4 @@ $opt = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 $pdo = new PDO($dsn, $user, $pass, $opt);
+?>

@@ -58,4 +58,9 @@
             }
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                document.getElementById("zoekResult
+                document.getElementById("zoekResultaten").innerHTML = this.responseText;
+            }; // Add closing parenthesis and semicolon here
+            xhttp.open("GET", "zoekProducten.php?q=" + query, true);
+            xhttp.send();
+        }
+    </script>

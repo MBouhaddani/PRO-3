@@ -1,4 +1,3 @@
-
 <?php
 require 'config.php';
 session_start();
@@ -87,6 +86,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
             <br>
             <p>Geen account? <a href="register.php">Maak een aan</a></p>
+            <form method="POST" action="homepagina.php">
+                <input type="submit" value="Login als gast">
+            </form>
         </div>
     </div>
 </body>

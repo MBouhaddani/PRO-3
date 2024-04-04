@@ -58,4 +58,11 @@
             }
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                document.getElementById("zoekResult
+                document.getElementById("zoekResultaten").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", "zoekProducten.php?q=" + query, true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
