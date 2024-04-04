@@ -21,7 +21,6 @@
             <?php
                 session_start();
                 if(isset($_SESSION['username'])) {
-                    echo '<li style="float: right;"><a href="#">Profile</a>';
                     echo '<ul>';
                     echo '<li><a href="logout.php">Logout</a></li>';
                     echo '</ul>';
