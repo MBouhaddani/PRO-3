@@ -4,16 +4,16 @@ $query = $_GET['q'] ?? '';
 
 // Simuleer een database resultaat
 $producten = [
-    ['id' => 1, 'naam' => 'Voetbalshirt'],
-    ['id' => 2, 'naam' => 'Tennisschoenen'],
-    ['id' => 3, 'naam' => 'Zwembroek'],
-    ['id' => 4, 'naam' => 'Hardloopbroek']
+    ['id' => 1, 'type' => 'Voetbalshirt'],
+    ['id' => 2, 'type' => 'Tennisschoenen'],
+    ['id' => 3, 'type' => 'Zwembroek'],
+    ['id' => 4, 'type' => 'Hardloopbroek']
 ];
 
 echo "<ul>";
 foreach ($producten as $product) {
-    if (stripos($product['naam'], $query) !== false) {
-        echo "<li><a href='productpagina.php?productId=" . $product['id'] . "'>" . $product['naam'] . "</a></li>";
+    if (stripos($product['type'], $query) !== false) {
+        echo "<li><a href='productpagina.php?productId=" . $product['id'] . "'>" . $product['type'] . "</a></li>";
     }
 }
 echo "</ul>";

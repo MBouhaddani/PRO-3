@@ -43,24 +43,24 @@ include_once "config.php";
     return $result;
  }
 
- // selecteer de rij van de opgeven kroegcode uit de table kroeg
- function getkroeg($kroegcode){
+ // selecteer de rij van de opgeven productcode uit de table product
+ function getproduct($productcode){
     // Connect database
     $conn = connectDb();
 
     // Select data uit de opgegeven table methode prepare
-    $sql = "SELECT * FROM " . CRUD_TABLE . " WHERE kroegcode = :kroegcode";
+    $sql = "SELECT * FROM " . CRUD_TABLE . " WHERE productcode = :productcode";
     $query = $conn->prepare($sql);
-    $query->execute([':kroegcode'=>$kroegcode]);
+    $query->execute([':productcode'=>$productcode]);
     $result = $query->fetch();
 
     return $result;
  }
 
 
- function ovzkroeg(){
+ function ovzproduct(){
 
-    // Haal alle kroeg record uit de tabel 
+    // Haal alle product record uit de tabel 
     $result = getData(CRUD_TABLE);
     
     //print table
@@ -99,27 +99,27 @@ function printTable($result){
         }
 
 
-        function crudkroeg(){
+        function crudproduct(){
 
             // Menu-item   insert
             $txt = "
-            <h1>Crud kroeg</h1>
+            <h1>Crud product</h1>
             <nav>
-        		<a href='insert.php'>Toevoegen nieuwe kroeg</a>
+        		<a href='insert.php'>Toevoegen nieuwe product</a>
             </nav><br>";
             echo $txt;
 
-            // Haal alle kroeg record uit de tabel 
+            // Haal alle product record uit de tabel 
             $result = getData(CRUD_TABLE);
 
             //print table
-            printCrudkroeg($result);
+            printCrudproduct($result);
             
          }
 
-        // Function 'printCrudkroeg' print een HTML-table met data uit $result 
+        // Function 'printCrudproduct' print een HTML-table met data uit $result 
         // en een wzg- en -verwijder-knop.
-        function printCrudkroeg($result){
+        function printCrudproduct($result){
             // Zet de hele table in een variable en print hem 1 keer 
             $table = "<table>";
 
@@ -146,13 +146,13 @@ function printTable($result){
                 
                 // Wijzig knopje
                 $table .= "<td>
-                    <form method='post' action='update.php?kroegcode={$row['kroegcode']}' >       
+                    <form method='post' action='update.php?productcode={$row['productcode']}' >       
                         <button>Wzg</button>	 
                     </form></td>";
 
                 // Delete knopje
                 $table .= "<td>
-                    <form method='post' action='delete.php?kroegcode={$row['kroegcode']}' >       
+                    <form method='post' action='delete.php?productcode={$row['productcode']}' >       
                         <button>Verwijder</button>	 
                     </form></td>";
 
@@ -164,7 +164,7 @@ function printTable($result){
         }
 
 
-        function updatekroeg($row){
+        function updateproduct($row){
 
             // Maak database connectie
             $conn = connectDb();
@@ -172,20 +172,24 @@ function printTable($result){
             // Maak een query 
             $sql = "UPDATE " . CRUD_TABLE .
             " SET 
-                naam = :naam, 
-                adres = :adres,
-                plaats = :plaats
-            WHERE kroegcode = :kroegcode
+                type = :type,
+                voor = :voor,
+                club = :club,
+                merk = :merk,
+                prijs = :prijs
+            WHERE productcode = :productcode
             ";
 
             // Prepare query
             $stmt = $conn->prepare($sql);
             // Uitvoeren
             $stmt->execute([
-                ':naam'=>$row['naam'],
-                ':adres'=>$row['adres'],
-                ':plaats'=>$row['plaats'],
-                ':kroegcode'=>$row['kroegcode'],
+                ':type'=>$row['type'],
+                ':voor'=>$row['voor'],
+                ':club'=>$row['club'],
+                ':merk'=>$row['merk'],
+                ':prijs'=>$row['prijs'],
+                ':productcode'=>$row['productcode'],
             ]);
 
             // test of database actie is gelukt
@@ -193,23 +197,25 @@ function printTable($result){
             return $retVal;
         }
 
-        function insertkroeg($post){
+        function insertproduct($post){
             // Maak database connectie
             $conn = connectDb();
 
             // Maak een query 
             $sql = "
-                INSERT INTO " . CRUD_TABLE . " (naam, adres, plaats)
-                VALUES (:naam, :adres, :plaats) 
+                INSERT INTO " . CRUD_TABLE . " (type, voor, club, merk, prijs)
+                VALUES (:type, :voor, :club, :merk, :prijs) 
             ";
 
             // Prepare query
             $stmt = $conn->prepare($sql);
             // Uitvoeren
             $stmt->execute([
-                ':naam'=>$_POST['naam'],
-                ':adres'=>$_POST['adres'],
-                ':plaats'=>$_POST['plaats'],
+                ':type'=>$_POST['type'],
+                ':voor'=>$_POST['voor'],
+                ':club'=>$_POST['club'],
+                ':merk'=>$_POST['merk'],
+                ':prijs'=>$_POST['prijs'],
             ]);
 
             
@@ -218,7 +224,7 @@ function printTable($result){
             return $retVal;  
         }
 
-        function deletekroeg($kroegcode){
+        function deleteproduct($productcode){
 
             // Connect database
             $conn = connectDb();
@@ -226,14 +232,14 @@ function printTable($result){
             // Maak een query 
             $sql = "
             DELETE FROM " . CRUD_TABLE . 
-            " WHERE kroegcode = :kroegcode";
+            " WHERE productcode = :productcode";
 
             // Prepare query
             $stmt = $conn->prepare($sql);
 
             // Uitvoeren
             $stmt->execute([
-            ':kroegcode'=>$kroegcode,
+            ':productcode'=>$productcode,
             ]);
 
             // test of database actie is gelukt

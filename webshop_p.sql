@@ -42,7 +42,7 @@ CREATE TABLE `bestelling` (
 
 CREATE TABLE `klant` (
   `klantcode` int(11) NOT NULL,
-  `naam` varchar(100) NOT NULL,
+  `type` varchar(100) NOT NULL,
   `adres` varchar(100) NOT NULL,
   `plaats` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -51,7 +51,7 @@ CREATE TABLE `klant` (
 -- Dumping data for table `klant`
 --
 
-INSERT INTO `klant` (`klantcode`, `naam`, `adres`, `plaats`) VALUES
+INSERT INTO `klant` (`klantcode`, `type`, `adres`, `plaats`) VALUES
 (1, 'Pieter Jansse', 'Xanderstraat 120', 'Rotterdam'),
 (2, 'William Franss', 'Utestraat 44', 'Amsterdam');
 

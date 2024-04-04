@@ -37,21 +37,29 @@
 <body>
   <h2>Wijzig product</h2>
   <form method="post">
-    
+
     <input type="hidden" id="productcode" name="productcode" required value="<?php echo $row['productcode']; ?>"><br>
     <label for="type">type:</label>
     <input type="text" id="type" name="type" required value="<?php echo $row['type']; ?>"><br>
 
-    <label for="adres">adres:</label>
-    <input type="text" id="adres" name="adres" required value="<?php echo $row['adres']; ?>"><br>
-    <label for="plaats">plaats:</label>
-    <input type="text" id="plaats" name="plaats" required value="<?php echo $row['plaats']; ?>"><br>
+    <label for="voor">voor:</label>
+    <input type="text" id="voor" name="voor" required value="<?php echo $row['voor']; ?>"><br>
+
+    <label for="club">club:</label>
+    <input type="text" id="club" name="club" required value="<?php echo $row['club']; ?>"><br>
+
+    <label for="merk">merk:</label>
+    <input type="text" id="merk" name="merk" required value="<?php echo $row['merk']; ?>"><br>
+
+    <label for="prijs">prijs:</label>
+    <input type="text" id="prijs" name="prijs" required value="<?php echo $row['prijs']; ?>"><br>
+
     <input type="submit" name="btn_wzg" value="Wijzig">
   </form>
   <br><br>
   <a href='main.php'>Home</a>
-</body>
-</html>
+  </body>
+  </html>
 
 <?php
     } else {
