@@ -1,3 +1,4 @@
+
 <?php
 require 'config.php';
 session_start();
@@ -13,15 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user && password_verify($password, $user['password'])) {
         $_SESSION['username'] = $user['username'];
-        header("Location: index.php");
+        header("Location: homepagina.php");
         exit(); // Add this line to stop further execution
     } else {
         echo "Ongeldige inloggegevens.";
     }
-} elseif ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["guest"])) {
-    $_SESSION['username'] = "Guest";
-    header("Location: index.php");
-    exit(); // Add this line to stop further execution
 }
 ?>
 
@@ -87,11 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required><br><br>
                 <input type="submit" value="Login">
-            </form>
-            <br>
-            <form method="GET" action="login.php">
-                <input type="hidden" name="guest" value="true">
-                <input type="submit" value="Login als gast">
             </form>
             <br>
             <p>Geen account? <a href="register.php">Maak een aan</a></p>
