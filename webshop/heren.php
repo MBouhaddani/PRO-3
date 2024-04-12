@@ -57,10 +57,8 @@
 
     <div id="zoekResultaten" style="position: absolute; background-color: white; width: 100%;"></div>
 
-    <footer>
-        <p>Contact: 9021703@student.zadkine.nl</p>
-        <p>&copy; 2023 Je Website. Alle rechten voorbehouden.</p>
-    </footer>
+<?php include 'footer.php';
+?>
 
     <script>
         function zoekProducten(query) {

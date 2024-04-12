@@ -56,9 +56,7 @@
         </div>
     </section>
 
-    <footer>
-        <p>Contact: 9021703@student.zadkine.nl</p>
-        <p>&copy; 2023 Je Website. Alle rechten voorbehouden.</p>
-    </footer>
+<?php include 'footer.php';
+?>
 </body>
 </html>
