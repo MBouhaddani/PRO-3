@@ -15,13 +15,13 @@
             <li><a href="kinderen.php">Kinderen</a></li>
             <li><a href="nieuw.php">Nieuw</a></li>
             <li><a href="aboutus.php">About us</a></li>
-            <li><a href="bestellen.php">Bestellen</a></li>
+            <li><a href="crudklant/main.php">Crud klant</a></li>
+            <li><a href="crudbestellen/main.php">Bestellen</a></li>
             <li><input type="text" id="zoekveld" placeholder="Zoeken..." onkeyup="zoekProducten(this.value)"></li>
-            
             <?php
                 session_start();
                 if(isset($_SESSION['username'])) {
-                    
+                   
                     echo '<ul>';
                     echo '<li><a href="logout.php">Logout</a></li>';
                     echo '</ul>';
@@ -38,39 +38,41 @@
             </li>
         </ul>
     </nav>
-
+ 
     <section>
         <div class="text-block">
             <h2>Shirt</h2>
-            <a href="productpagina-best-seller.html"><img src="images/feyenoord.jpg" alt="Best seller product"></a>
+            <a href="crudproduct/main.php"><img src="image/feyenoord.jpg" alt="Best seller product"></a>
             <p>Welk shirt</p>
             <p>Prijs</p>
         </div>
-
+ 
         <div class="text-block">
             <h2>Shirt</h2>
-            <a href="productpagina-nieuw-in-collectie.html"><img src="images/feyenoord.jpg" alt="Nieuw in collectie product"></a>
+            <a href="crudproduct/main.php"><img src="image/feyenoord.jpg" alt="Nieuw in collectie product"></a>
             <p>Welk shirt</p>
             <p>Prijs</p>
         </div>
     </section>
-
+ 
     <div id="zoekResultaten" style="position: absolute; background-color: white; width: 100%;"></div>
-
+ 
 <?php include 'footer.php';
 ?>
-
+ 
     <script>
         function zoekProducten(query) {
-            if (query.length == 0) { 
+            if (query.length == 0) {
                 document.getElementById("zoekResultaten").innerHTML = "";
                 return;
             }
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
                 document.getElementById("zoekResultaten").innerHTML = this.responseText;
-            }; // Add closing parenthesis and semicolon here
+            };
             xhttp.open("GET", "zoekProducten.php?q=" + query, true);
             xhttp.send();
         }
     </script>
+</body>
+</html>

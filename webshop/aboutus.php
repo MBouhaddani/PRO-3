@@ -42,12 +42,12 @@
     <section class="clearfix">
         <div class="info-box">
             <img src="image/mohammed.jpg" alt="Headshot 1">
-            <p>Information about person 1</p>
+            <p>Ik ben Mohammed el Bouhaddani, ik ben 16 jaar en ik doe de opleiding software developer op het Techniek College Rotterdam. Ik was de Scrummaster van dit project en heb de back-end geregeld.</p>
         </div>
 
         <div class="info-box">
             <img src="image/ivo.jpg" alt="Headshot 2">
-            <p>Information about person 2</p>
+            <p>Ik ben Ivo Jumelet, 16 jaar en ik doe de opleiding software developer op het Techniek College Rotterdam. Mijn rol in het project was het ontwikkelen van de website en het maken van het ontwerp.</p>
         </div>
 
         <div class="info-box">

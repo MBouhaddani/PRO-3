@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'webshop_login';
+$db   = 'webshop_p';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';

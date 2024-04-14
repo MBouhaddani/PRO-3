@@ -57,7 +57,7 @@ section {
     color: black;
     text-align: center;
     height: 30;
-    padding-bottom: 5%;
+    padding-bottom: 5%; 
     position: relative;
     overflow: hidden;
     font-size: 20px;
@@ -71,6 +71,12 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
 }
 
 #display-area {
